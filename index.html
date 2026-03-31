@@ -230,7 +230,6 @@
             <div class="welcome-box">
                 <h1>MUSEO VIRTUAL</h1>
                 <p>Historia de la Comunicación en México</p>
-                <p style="font-size: 0.8rem; margin-top: 10px;">Por: Arévalo Tobón Kilye Nicole</p>
                 <hr style="margin: 20px 0; border: 1px dashed white;">
                 <button class="btn-accion" style="background:var(--amarillo-retro); color:black;" onclick="cambiarPestaña(1)">ENTRAR AL MUSEO</button>
             </div>
@@ -241,6 +240,16 @@
         <div class="recorrido-container">
             <h1 style="text-align: center; margin-bottom: 40px; border-bottom: 5px solid var(--rojo-pasion); padding-bottom: 10px;">SALAS DEL MUSEO</h1>
             
+            <div class="sala-card" onclick="verDetalleSala(1)">
+                <div class="sala-num">1</div>
+                <div class="sala-info"><h2>Comunicar para existir</h2><p>Orígenes simbólicos y control del conocimiento.</p></div>
+            </div>
+
+            <div class="sala-card" onclick="verDetalleSala(2)">
+                <div class="sala-num">2</div>
+                <div class="sala-info"><h2>Comunicar para influir</h2><p>La imprenta y la opinión pública.</p></div>
+            </div>
+
             <div class="sala-card" onclick="verDetalleSala(3)">
                 <div class="sala-num">3</div>
                 <div class="sala-info"><h2>Comunicar para conectar</h2><p>Infraestructura, velocidad y redes de transporte.</p></div>
@@ -248,12 +257,12 @@
 
             <div class="sala-card" onclick="verDetalleSala(4)">
                 <div class="sala-num">4</div>
-                <div class="sala-info"><h2>Comunicar en tiempo real</h2><p>El telégrafo y el desprendimiento del mensaje físico.</p></div>
+                <div class="sala-info"><h2>Comunicar en tiempo real</h2><p>El telégrafo y la electricidad.</p></div>
             </div>
 
             <div class="sala-card" onclick="verDetalleSala(5)">
                 <div class="sala-num">5</div>
-                <div class="sala-info"><h2>Comunicar a las masas</h2><p>Cine, radio y televisión: la era del espectáculo masivo.</p></div>
+                <div class="sala-info"><h2>Comunicar a las masas</h2><p>Cine, radio y televisión.</p></div>
             </div>
 
             <div class="sala-card" onclick="verDetalleSala(6)">
@@ -263,12 +272,12 @@
 
             <div class="sala-card" onclick="verDetalleSala(7)">
                 <div class="sala-num">7</div>
-                <div class="sala-info"><h2>Comunicar para globalizar</h2><p>Satélites y la inmediatez total de la información.</p></div>
+                <div class="sala-info"><h2>Comunicar para globalizar</h2><p>Satélites e inmediatez total.</p></div>
             </div>
 
             <div class="sala-card" onclick="verDetalleSala(8)">
                 <div class="sala-num">8</div>
-                <div class="sala-info"><h2>Comunicar para participar</h2><p>La web 2.0 y la comunicación como espacio de resistencia.</p></div>
+                <div class="sala-info"><h2>Comunicar para participar</h2><p>La web 2.0 y la resistencia digital.</p></div>
             </div>
         </div>
     </section>
@@ -281,9 +290,7 @@
         <div id="portada" style="background: var(--azul-oscuro);">
             <div class="welcome-box" style="border-color: var(--amarillo-retro);">
                 <h2>FIN DEL RECORRIDO</h2>
-                <p>“La historia de la comunicación en México es la historia de quién puede hablar, quién puede escuchar y quién decide qué es verdad.”</p>
-                <hr style="margin: 20px 0; border: 1px dashed white;">
-                <p>Autor: Arévalo Tobón Kilye Nicole • 2026</p>
+                <p>Arévalo Tobón Kilye Nicole • 2026</p>
                 <button class="btn-accion" onclick="cambiarPestaña(0)">VOLVER AL INICIO</button>
             </div>
         </div>
@@ -291,161 +298,260 @@
 
     <script>
         const datosSalas = {
+            1: {
+                render: function() {
+                    return `
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver al Menú</button>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>🏺 Sala 1: Comunicar para existir</h3>
+                                <p>La comunicación surge como una necesidad básica para sobrevivir y pronto se convierte en una herramienta para organizar la sociedad.</p>
+                            </div>
+                        </div>
+                        <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>🪨 1. 35,000 a.C. – Comunicación simbólica</h3>
+                                <p>Las pinturas rupestres no eran solo arte, sino formas de transmitir conocimiento y memoria común.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🗣️ 2. 10,000 a.C. – La oralidad</h3>
+                                <p>Basada en el lenguaje hablado y tradiciones para crear identidad cultural.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1544077960-604201fe74bc?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>✍️ 3. 3,500 a.C. – Escritura</h3>
+                                <p>Sistemas jeroglíficos permiten administrar recursos y registrar leyes.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🏛️ 4. 2,000 a.C. – Escritura y Estado</h3>
+                                <p>El Estado utiliza la escritura para control territorial e impuestos.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>🔤 5. 1,000 a.C. – El Alfabeto</h3>
+                                <p>Sistemas simples que permiten difundir el conocimiento fuera de las élites.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🏛️ 6. 500 a.C. – Retórica</h3>
+                                <p>En Grecia surge el debate público y la persuasión política.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🧩 Cierre de la Sala</h3>
+                                <p>La comunicación crece, pero necesita reproducirse a mayor escala.</p>
+                                <button class="btn-accion" onclick="verDetalleSala(2)">🔗 Siguiente: Sala 2 (Imprenta)</button>
+                            </div>
+                        </div>
+                        <div class="mensaje-final-box">“La comunicación comenzó para sobrevivir, pero terminó dando sentido al mundo.”</div>
+                        <div class="referencias-seccion">
+                            <p><strong>📚 Referencias - Sala 1</strong><br> Rodríguez Sánchez, D. M. (2026). Historia de la comunicación.</p>
+                        </div>
+                    `;
+                }
+            },
+            2: {
+                render: function() {
+                    return `
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver al Menú</button>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1585829365234-781fdfc4130d?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>🖨️ Sala 2: Comunicar para influir</h3>
+                                <p>La imprenta transforma la comunicación en un espacio de disputa ideológica y expansión masiva.</p>
+                            </div>
+                        </div>
+                        <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1506466010722-395aa2bef877?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>📜 1. Antes de 1450 – Manuscritos</h3>
+                                <p>Producción lenta en monasterios restringida a las élites.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🖨️ 2. 1450 – Johannes Gutenberg</h3>
+                                <p>Invención de los tipos móviles: la comunicación se vuelve masiva.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>📚 3. 1460-1600 – Mercado Editorial</h3>
+                                <p>Aumenta la alfabetización y la circulación de ideas.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>📰 4. 1600-1700 – Periodismo</h3>
+                                <p>Aparecen las gacetas y la información se vuelve de interés público.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000" class="apartado-img">
+                            <div class="apartado-texto">
+                                <h3>⚖️ 5. Censura y Control</h3>
+                                <p>Instituciones implementan restricciones para frenar textos críticos.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🧠 6. La Esfera Pública</h3>
+                                <p>La imprenta consolida la opinión pública como un contrapoder político.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🧩 Cierre de la Sala</h3>
+                                <p>El mensaje es masivo, ahora falta que viaje a mayor velocidad física.</p>
+                                <button class="btn-accion" onclick="verDetalleSala(3)">🔗 Siguiente: Sala 3 (Infraestructura)</button>
+                            </div>
+                        </div>
+                        <div class="mensaje-final-box">“La imprenta no solo multiplicó libros, multiplicó las formas de entender el mundo.”</div>
+                    `;
+                }
+            },
             3: {
                 render: function() {
                     return `
-                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Menú de Salas</button>
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver</button>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1532103054090-33894611138f?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>🚂 Sala 3: Comunicar para conectar</h3>
-                                <p>Esta sala muestra cómo la comunicación deja de depender solo del mensaje y pasa a depender de las redes que lo transportan, transformando la sociedad moderna.</p>
+                                <p>La comunicación deja de depender solo del mensaje y pasa a depender de las redes que lo transportan.</p>
                             </div>
                         </div>
                         <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🐎 1. Antes del s. XIX – Comunicación Limitada</h3>
-                                <p>Los mensajes viajaban a caballo o mediante mensajeros. La velocidad de la información era la misma que la velocidad del transporte físico.</p>
+                                <h3>🐎 1. Pre-XIX – Comunicación Limitada</h3>
+                                <p>La velocidad de la información era la misma que la del transporte físico (caballos).</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>🚂 2. 1830 – El Ferrocarril</h3>
-                                <p>La inauguración de líneas ferroviarias permite que la información viaje más rápido. Surge la puntualidad como valor social.</p>
+                                <h3>🚂 2. 1830 – Ferrocarril</h3>
+                                <p>Se redefine la percepción del espacio y el tiempo con viajes más rápidos.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1520437358207-323b43b50729?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🚢 3. 1830-1870 – Barcos de Vapor</h3>
-                                <p>Expansión global. Las noticias cruzan océanos en semanas en lugar de meses.</p>
+                                <h3>🚢 3. Barcos de Vapor</h3>
+                                <p>Expansión global. Las noticias cruzan océanos en semanas, no meses.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>📮 4. 1840 – El Sello Postal</h3>
-                                <p>Estandarización del correo. Enviar cartas se vuelve un derecho accesible y no un lujo de élites.</p>
+                                <h3>📮 4. 1840 – Sello Postal</h3>
+                                <p>Estandarización del correo como un derecho accesible.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1463944582600-4749f7dc59d5?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🏢 5. Urbanización</h3>
-                                <p>Las ciudades crecen alrededor de los nodos de transporte, facilitando el intercambio de ideas.</p>
+                                <h3>🇲🇽 5. México y el Porfiriato</h3>
+                                <p>El ferrocarril unifica mercados y centraliza el flujo de información política.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>🌐 6. Interconexión Nacional</h3>
-                                <p>En México, el ferrocarril durante el porfiriato unificó mercados y centralizó el flujo de información política.</p>
+                                <h3>🏙️ 6. Urbanización</h3>
+                                <p>Las ciudades crecen alrededor de nodos de transporte facilitando ideas.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>🧩 Cierre de la Sala</h3>
-                                <p>La infraestructura está lista, pero ahora el mensaje necesita desprenderse de la materia para viajar a la velocidad de la luz.</p>
-                                <button class="btn-accion" onclick="verDetalleSala(4)">🔗 Siguiente: Sala 4 (Tiempo Real)</button>
+                                <h3>🧩 Cierre</h3>
+                                <p>La red física está lista, ahora el mensaje debe viajar a la velocidad de la luz.</p>
+                                <button class="btn-accion" onclick="verDetalleSala(4)">🔗 Siguiente: Sala 4 (Telégrafo)</button>
                             </div>
                         </div>
-                        <div class="infografia-box">
-                            <img src="Logotipo_0.jpeg" style="width:80px; margin-bottom:10px;">
-                            <p><strong>[INFOGRAFÍA: LA VELOCIDAD DE LA RED]</strong></p>
-                            <p>Visualización de la evolución del transporte en México (1870-1910).</p>
-                        </div>
-                        <div class="video-box">🎥 [ESPACIO PARA VIDEO: Historia del Ferrocarril en México]</div>
-                        <div class="mensaje-final-box">“La comunicación comienza a despegarse del ritmo natural del cuerpo humano: el tiempo se acelera.”</div>
-                        <div class="referencias-seccion">
-                            <p><strong>📚 Referencias - Sala 3 (APA 7)</strong><br>
-                            Rodríguez Sánchez, D. M. (2026). Historia de la comunicación [PDF].<br>
-                            Briggs, A., & Burke, P. (2002). De Gutenberg a Internet. Taurus.</p>
-                        </div>
+                        <div class="infografia-box"><img src="Logotipo_0.jpeg" style="width:50px;"><br><strong>[INFOGRAFÍA: LA VELOCIDAD DE LA RED]</strong></div>
+                        <div class="mensaje-final-box">“El tiempo se acelera y el mundo se encoge.”</div>
                     `;
                 }
             },
             4: {
                 render: function() {
                     return `
-                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Menú de Salas</button>
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver</button>
                         <div class="apartado-bloque">
-                            <img src="https://images.unsplash.com/photo-1598418659102-18d60527339d?q=80&w=1000" class="apartado-img">
+                            <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>⚡ Sala 4: Comunicar en tiempo real</h3>
-                                <p>El telégrafo marca la separación definitiva entre el transporte físico y el mensaje. El poder se ejerce de forma instantánea a distancia.</p>
+                                <p>El telégrafo marca la separación definitiva entre el transporte físico y el mensaje.</p>
                             </div>
                         </div>
                         <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
                         <div class="apartado-bloque">
-                            <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>📟 1. 1844 – Samuel Morse</h3>
-                                <p>Primer mensaje telegráfico. La información viaja a través de impulsos eléctricos por cables.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <div class="apartado-texto">
-                                <h3>🇲🇽 2. 1851 – El Telégrafo en México</h3>
-                                <p>Inauguración de la primera línea entre la Ciudad de México y Nopalucan (Puebla).</p>
+                                <p>La información viaja a través de impulsos eléctricos: nace la inmediatez.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1509191432712-12710c13d8b2?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🔌 3. 1866 – Cable Transatlántico</h3>
-                                <p>Europa y América se conectan instantáneamente por el fondo del océano.</p>
+                                <h3>🇲🇽 2. 1851 – Telégrafo en México</h3>
+                                <p>Primera línea entre Ciudad de México y Puebla consolidando el Estado.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>👮 4. Control Político</h3>
-                                <p>El gobierno de Porfirio Díaz utiliza el telégrafo para vigilar levantamientos y centralizar el mando militar.</p>
+                                <h3>🔌 3. Cable Transatlántico</h3>
+                                <p>Europa y América se conectan instantáneamente por el fondo marino.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>💰 5. El Mercado Bursátil</h3>
-                                <p>El telégrafo permite conocer precios de materias primas en tiempo real, transformando la economía.</p>
+                                <h3>💰 4. Mercado Bursátil</h3>
+                                <p>Los precios de materias primas se conocen en tiempo real en todo el mundo.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>📱 6. Antecedente Digital</h3>
-                                <p>El código Morse es el abuelo del sistema binario actual: puntos y rayas como precursores de 1s y 0s.</p>
+                                <h3>👮 5. Control Militar</h3>
+                                <p>El gobierno usa el telégrafo para vigilar levantamientos de forma instantánea.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>🧩 Cierre de la Sala</h3>
-                                <p>La inmediatez ya existe, pero ahora buscamos que la voz y la imagen acompañen al mensaje eléctrico.</p>
+                                <h3>🧩 Cierre</h3>
+                                <p>La inmediatez ya existe, ahora buscamos que la voz y la imagen acompañen al mensaje.</p>
                                 <button class="btn-accion" onclick="verDetalleSala(5)">🔗 Siguiente: Sala 5 (Medios Masivos)</button>
                             </div>
                         </div>
-                        <div class="infografia-box">
-                            <img src="Logotipo_0.jpeg" style="width:80px;">
-                            <p><strong>[INFOGRAFÍA: EL PODER DEL CABLE]</strong></p>
-                            <p>Mapa de las líneas telegráficas que consolidaron el Estado Mexicano.</p>
-                        </div>
-                        <div class="video-box">🎥 [ESPACIO PARA VIDEO: El Código Morse y su impacto]</div>
-                        <div class="mensaje-final-box">“La información deja de tener peso; el telégrafo aniquiló el espacio y el tiempo.”</div>
-                        <div class="referencias-seccion">
-                            <p><strong>📚 Referencias - Sala 4 (APA 7)</strong><br>
-                            Rodríguez Sánchez, D. M. (2026). Historia de la comunicación [PDF].<br>
-                            Briggs, A., & Burke, P. (2002). De Gutenberg a Internet.</p>
-                        </div>
+                        <div class="infografia-box"><strong>[INFOGRAFÍA: EL PODER DEL CABLE]</strong></div>
                     `;
                 }
             },
             5: {
                 render: function() {
                     return `
-                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Menú de Salas</button>
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver</button>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1461151304267-38535e777d81?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>📺 Sala 5: Comunicar a las masas</h3>
-                                <p>Cine, Radio y Televisión. Los medios masivos no solo informan, construyen la identidad nacional y la opinión pública controlada.</p>
+                                <p>Cine, radio y televisión: los medios masivos construyen la identidad nacional.</p>
                             </div>
                         </div>
                         <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
@@ -453,145 +559,104 @@
                             <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>🎬 1. 1896 – El Cine en México</h3>
-                                <p>Los enviados de los Lumière llegan a México. Primera exhibición en presencia de Porfirio Díaz.</p>
+                                <p>Los Lumière llegan a México y realizan la primera función ante Porfirio Díaz.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
                                 <h3>📻 2. 1921 – La Radio</h3>
-                                <p>Primeras transmisiones oficiales. La radio llega a los hogares para educar y entretener masivamente.</p>
+                                <p>Nacen las transmisiones que educan y entretienen a miles simultáneamente.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>📺 3. 1950 – La Televisión</h3>
-                                <p>Inauguración de XHTV Canal 4. Los medios audiovisuales se vuelven el centro de la vida familiar.</p>
+                                <p>Inauguración de XHTV Canal 4. La imagen entra en los hogares mexicanos.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
                                 <h3>🎨 4. 1963 – TV a Color</h3>
-                                <p>Guillermo González Camarena revoluciona la imagen mundial con su sistema tricromático.</p>
+                                <p>Guillermo González Camarena revoluciona la tecnología audiovisual mundial.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🏛️ 5. Hegemonía y Control</h3>
-                                <p>Televisa surge como un gigante mediático que colabora estrechamente con el sistema político.</p>
+                                <h3>🏛️ 5. Hegemonía Televisa</h3>
+                                <p>Surge el gigante mediático que moldea la opinión pública nacional.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>📣 6. Propaganda Masiva</h3>
-                                <p>Uso de los medios para campañas políticas y construcción de la cultura de consumo.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <div class="apartado-texto">
-                                <h3>🧩 Cierre de la Sala</h3>
-                                <p>La audiencia es pasiva. Recibe pero no crea. La próxima revolución permitirá que el usuario también sea emisor.</p>
+                                <h3>🧩 Cierre</h3>
+                                <p>La audiencia es pasiva; pronto el usuario también será emisor.</p>
                                 <button class="btn-accion" onclick="verDetalleSala(6)">🔗 Siguiente: Sala 6 (Era Digital)</button>
                             </div>
                         </div>
-                        <div class="infografia-box">
-                            <img src="Logotipo_0.jpeg" style="width:80px;">
-                            <p><strong>[INFOGRAFÍA: EL NACIMIENTO DE LOS MEDIOS MASIVOS]</strong></p>
-                            <p>Del teléfono (1878) a la expansión de la radio y la televisión.</p>
-                        </div>
-                        <div class="video-box">🎥 [ESPACIO PARA VIDEO: Primera transmisión de TV en México]</div>
-                        <div class="mensaje-final-box">“Los medios masivos no solo informan: construyen la forma en que vemos el mundo.”</div>
-                        <div class="referencias-seccion">
-                            <p><strong>📚 Referencias - Sala 5 (APA 7)</strong><br>
-                            Cortés, G. (2026). La televisión a color y su impacto político y social [PDF].<br>
-                            Rodríguez Sánchez, D. M. (2026). Historia de la comunicación [PDF].</p>
-                        </div>
+                        <div class="video-box">🎥 [VIDEO: Primera transmisión en México]</div>
                     `;
                 }
             },
             6: {
                 render: function() {
                     return `
-                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Menú de Salas</button>
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver</button>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>💻 Sala 6: Comunicar en red</h3>
-                                <p>La convergencia digital transforma todo mensaje en datos. Es el fin de la pasividad del espectador y el inicio de la interactividad.</p>
+                                <p>La convergencia digital transforma el mensaje en datos interactivos.</p>
                             </div>
                         </div>
                         <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
                         <div class="apartado-bloque">
+                            <div class="apartado-texto">
+                                <h3>🌐 1. 1969 – ARPANET</h3>
+                                <p>Orígenes militares y académicos de la conexión entre computadoras.</p>
+                            </div>
+                        </div>
+                        <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🌐 1. 1969-1980s – ARPANET y Orígenes</h3>
-                                <p>Nace el protocolo de conexión entre computadoras en contextos militares y académicos.</p>
+                                <h3>🇲🇽 2. 1989 – Internet en México</h3>
+                                <p>El ITESM y la UNAM logran las primeras conexiones exitosas a la red.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>🇲🇽 2. 1989 – Internet en México</h3>
-                                <p>El ITESM y la UNAM logran las primeras conexiones exitosas a la red mundial.</p>
+                                <h3>🏢 3. 1990s – World Wide Web</h3>
+                                <p>La información se vuelve accesible mediante navegadores gráficos.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🏢 3. 1990s – La World Wide Web</h3>
-                                <p>Surgimiento de los navegadores. La información se vuelve accesible para cualquier persona con una computadora.</p>
+                                <h3>💾 4. Digitalización</h3>
+                                <p>Libros, música y fotos dejan de ser físicos y se vuelven bits.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>💾 4. Digitalización de Archivos</h3>
-                                <p>Libros, fotos y música dejan de ser físicos y pasan a ser bits almacenados.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000" class="apartado-img">
-                            <div class="apartado-texto">
-                                <h3>🔓 5. Democratización</h3>
-                                <p>Surgen los blogs y los foros. El conocimiento ya no solo lo dictan las enciclopedias.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <div class="apartado-texto">
-                                <h3>📱 6. Movilidad Inicial</h3>
-                                <p>Las computadoras dejan de ser de escritorio y los dispositivos empiezan a hacerse portátiles.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <div class="apartado-texto">
-                                <h3>🧩 Cierre de la Sala</h3>
-                                <p>La información está en la red, pero ahora necesitamos que esté en todas partes, en todo momento.</p>
+                                <h3>🧩 Cierre</h3>
+                                <p>La red existe, ahora debe estar en todas partes y todo el tiempo.</p>
                                 <button class="btn-accion" onclick="verDetalleSala(7)">🔗 Siguiente: Sala 7 (Globalización)</button>
                             </div>
                         </div>
-                        <div class="infografia-box">
-                            <img src="Logotipo_0.jpeg" style="width:80px;">
-                            <p><strong>[INFOGRAFÍA: LA ERA DIGITAL]</strong></p>
-                            <p>De recibir información... a crearla. La evolución de los protocolos.</p>
-                        </div>
-                        <div class="video-box">🎥 [ESPACIO PARA VIDEO: Los primeros años de Internet]</div>
-                        <div class="mensaje-final-box">“La digitalización no es un cambio de formato, es un cambio en la estructura del poder.”</div>
-                        <div class="referencias-seccion">
-                            <p><strong>📚 Referencias - Sala 6 (APA 7)</strong><br>
-                            Briggs, A., & Burke, P. (2002). De Gutenberg a Internet.<br>
-                            Rodríguez Sánchez, D. M. (2026). Historia de la comunicación [PDF].</p>
-                        </div>
+                        <div class="infografia-box"><strong>[INFOGRAFÍA: LA ERA DIGITAL]</strong></div>
                     `;
                 }
             },
             7: {
                 render: function() {
                     return `
-                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Menú de Salas</button>
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver</button>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>🌍 Sala 7: Comunicar para globalizar</h3>
-                                <p>Satélites y redes globales. El mundo se convierte en una "Aldea Global" donde lo que ocurre en un extremo se conoce instantáneamente en el otro.</p>
+                                <p>Satélites y redes mundiales convierten el planeta en una aldea global.</p>
                             </div>
                         </div>
                         <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
@@ -599,132 +664,80 @@
                             <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>📡 1. 1985 – Satélites Morelos</h3>
-                                <p>México pone en órbita sus propios satélites, logrando cobertura nacional total y conectividad internacional autónoma.</p>
+                                <p>México pone en órbita sus propios satélites para cobertura nacional.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
                                 <h3>🌎 2. Inmediatez Global</h3>
-                                <p>Cobertura en vivo de eventos mundiales. La percepción de frontera desaparece en la información.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000" class="apartado-img">
-                            <div class="apartado-texto">
-                                <h3>💼 3. Teletrabajo y Economía</h3>
-                                <p>Las redes globales permiten que las empresas operen en distintos continentes al mismo tiempo.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <div class="apartado-texto">
-                                <h3>🌐 4. Consumo Global</h3>
-                                <p>Estandarización de contenidos. Consumimos las mismas películas, series y noticias en todo el mundo.</p>
+                                <p>Eventos mundiales en vivo: la percepción de fronteras desaparece.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1544652478-6653e09f18a2?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>📱 5. Smartphones</h3>
-                                <p>El acceso a la red global se traslada al bolsillo de las personas. Siempre conectados.</p>
+                                <h3>📱 3. Smartphones</h3>
+                                <p>El acceso a la red global se traslada al bolsillo de las personas.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>🛰️ 6. Starlink y el Futuro</h3>
-                                <p>La conectividad satelital busca eliminar los puntos ciegos del planeta, llevando internet a zonas rurales.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <div class="apartado-texto">
-                                <h3>🧩 Cierre de la Sala</h3>
-                                <p>El exceso de información genera un nuevo reto: ¿quién controla la verdad en un mar de datos?</p>
+                                <h3>🧩 Cierre</h3>
+                                <p>Mucha información, pero ¿quién controla la verdad?</p>
                                 <button class="btn-accion" onclick="verDetalleSala(8)">🔗 Siguiente: Sala 8 (Participación)</button>
                             </div>
                         </div>
-                        <div class="infografia-box">
-                            <img src="Logotipo_0.jpeg" style="width:80px;">
-                            <p><strong>[INFOGRAFÍA: LA COMUNICACIÓN SIN FRONTERAS]</strong></p>
-                            <p>Flujo de información mediante satélites y cables submarinos modernos.</p>
-                        </div>
-                        <div class="video-box">🎥 [ESPACIO PARA VIDEO: Los Satélites Morelos en México]</div>
-                        <div class="mensaje-final-box">“La comunicación no solo transmite la realidad: decide cómo la entendemos.”</div>
-                        <div class="referencias-seccion">
-                            <p><strong>📚 Referencias - Sala 7 (APA 7)</strong><br>
-                            Briggs, A., & Burke, P. (2002). De Gutenberg a Internet.<br>
-                            Rodríguez Sánchez, D. M. (2026). Historia de la comunicación [PDF].</p>
-                        </div>
+                        <div class="mensaje-final-box">“La comunicación ya no transmite la realidad: la decide.”</div>
                     `;
                 }
             },
             8: {
                 render: function() {
                     return `
-                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Menú de Salas</button>
+                        <button class="btn-volver" onclick="cambiarPestaña(1)">← Volver</button>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
                                 <h3>✊ Sala 8: Comunicar para participar</h3>
-                                <p>La era del Prosumidor. Los usuarios ya no solo consumen, sino que crean contenido, denuncian y se organizan para el cambio social.</p>
+                                <p>El prosumidor: los usuarios crean contenido y se organizan para el cambio social.</p>
                             </div>
                         </div>
                         <div class="separador-linea">⏳ LÍNEA DEL TIEMPO</div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>📱 1. 2004-2010 – Auge de Redes Sociales</h3>
-                                <p>Facebook, YouTube y Twitter transforman la comunicación en un diálogo multidireccional.</p>
+                                <h3>🤳 1. 2004-2010 – Redes Sociales</h3>
+                                <p>Facebook y Twitter transforman la comunicación en diálogo multidireccional.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
                                 <h3>📣 2. Movimientos Sociales</h3>
-                                <p>#YoSoy132 en México muestra el poder de las redes para cuestionar a los medios tradicionales y al poder político.</p>
+                                <p>#YoSoy132 en México muestra el poder de las redes contra el monopolio mediático.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000" class="apartado-img">
                             <div class="apartado-texto">
-                                <h3>🤳 3. El Ciudadano-Periodista</h3>
-                                <p>Cualquier persona con un celular puede reportar una noticia en tiempo real, rompiendo el monopolio de la TV.</p>
+                                <h3>⚠️ 3. Desinformación</h3>
+                                <p>Surgen las Fake News y algoritmos que crean burbujas de información.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
-                                <h3>⚠️ 4. La Desinformación</h3>
-                                <p>Surgen las Fake News y los algoritmos que crean burbujas de información, polarizando a la sociedad.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=1000" class="apartado-img">
-                            <div class="apartado-texto">
-                                <h3>🤖 5. Inteligencia Artificial</h3>
-                                <p>La IA comienza a generar contenidos y a gestionar la atención de los usuarios.</p>
-                            </div>
-                        </div>
-                        <div class="apartado-bloque">
-                            <div class="apartado-texto">
-                                <h3>🏗️ 6. Resistencia y Poder</h3>
-                                <p>La comunicación se mantiene como un campo de disputa entre el control de las grandes empresas y la libertad ciudadana.</p>
+                                <h3>🤖 4. Inteligencia Artificial</h3>
+                                <p>Contenidos generados por IA gestionan la atención del usuario.</p>
                             </div>
                         </div>
                         <div class="apartado-bloque">
                             <div class="apartado-texto">
                                 <h3>🧩 Cierre del Museo</h3>
-                                <p>Has recorrido miles de años de historia. La tecnología cambia, pero la necesidad de conectar sigue siendo humana.</p>
+                                <p>La tecnología cambia, pero la necesidad de conectar sigue siendo humana.</p>
                                 <button class="btn-accion" onclick="cambiarPestaña(2)">🏁 Finalizar Recorrido</button>
                             </div>
                         </div>
-                        <div class="infografia-box">
-                            <img src="Logotipo_0.jpeg" style="width:80px;">
-                            <p><strong>[INFOGRAFÍA FINAL: ¿QUIÉN CONTROLA LA REALIDAD?]</strong></p>
-                            <p>Relación entre Poder, Influencia y Participación en el siglo XXI.</p>
-                        </div>
-                        <div class="video-box">🎥 [ESPACIO PARA VIDEO: El impacto de las Redes Sociales]</div>
-                        <div class="mensaje-final-box">“La historia de la comunicación es la historia de quién puede hablar, quién puede escuchar y quién decide qué es verdad.”</div>
                         <div class="referencias-seccion">
-                            <p><strong>📚 Referencias - Sala 8 (APA 7)</strong><br>
-                            Rodríguez Sánchez, D. M. (2026). Historia de la comunicación [PDF].<br>
-                            Briggs, A., & Burke, P. (2002). De Gutenberg a Internet.</p>
+                            <p><strong>📚 Referencias Finales</strong><br> Briggs & Burke (2002) • Rodríguez Sánchez (2026).</p>
                         </div>
                     `;
                 }
@@ -733,7 +746,7 @@
 
         function verDetalleSala(id) {
             const contenedor = document.getElementById('contenido-sala');
-            if (datosSalas[id] && datosSalas[id].render) {
+            if (datosSalas[id]) {
                 contenedor.innerHTML = datosSalas[id].render();
                 document.querySelectorAll('.seccion-pestaña').forEach(p => p.classList.remove('active'));
                 document.getElementById('pestaña-detalle').classList.add('active');
@@ -744,13 +757,10 @@
         function cambiarPestaña(index) {
             document.querySelectorAll('.seccion-pestaña').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.punto').forEach(p => p.classList.remove('active'));
-            
             const seccion = document.getElementById(`pestaña-${index}`);
             const punto = document.getElementById(`dot-${index}`);
-            
             if(seccion) seccion.classList.add('active');
             if(punto) punto.classList.add('active');
-            
             window.scrollTo(0, 0);
         }
     </script>
